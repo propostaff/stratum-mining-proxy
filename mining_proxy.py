@@ -102,7 +102,8 @@ def on_connect(f, workers, job_registry):
     (_, extranonce1, extranonce2_size) = (yield f.rpc('mining.subscribe', []))
     job_registry.set_extranonce(extranonce1, extranonce2_size)
     stratum_listener.StratumProxyService._set_extranonce(extranonce1, extranonce2_size)
-    
+    if args.custom_user:
+        stratum_listener.StratumProxyService._set_custom_user(args.custom_user, args.custom_password)
     defer.returnValue(f)
      
 def on_disconnect(f, workers, job_registry):
