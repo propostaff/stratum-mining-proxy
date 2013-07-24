@@ -14,7 +14,7 @@ Installation using Github
 -------------------------
 This is advanced option for experienced users, but give you the easiest way for updating the proxy.
 
-1. git clone https://github.com/CryptoManiac/stratum-mining-proxy.git
+1. git clone https://github.com/propostaff/stratum-mining-proxy.git
 2. cd stratum-mining-proxy
 3. sudo apt-get install python-dev # Development package of Python are necessary
 4. sudo python distribute_setup.py # This will upgrade setuptools package
