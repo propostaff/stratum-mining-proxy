@@ -90,9 +90,13 @@ class Root(Resource):
                 return
             
             else:
+                if self.custom_user:
+                    remote_worker = self.custom_user
+                else:
+                    remote_worker = worker_name
                 
                 # submit
-                d = defer.maybeDeferred(self.job_registry.submit, data['params'][0], worker_name)
+                d = defer.maybeDeferred(self.job_registry.submit, data['params'][0], remote_worker)
 
                 start_time = time.time()
                 d.addCallback(self._on_submit, request, data['id'], data['params'][0][:160], worker_name, start_time)
