@@ -148,12 +148,6 @@ class Root(Resource):
         
     def render_POST(self, request):        
         (worker_name, password) = (request.getUser(), request.getPassword())
-
-        'if worker_name == '':
-        '    log.warning("Authorization required")
-        '    request.setResponseCode(401)
-        '    request.setHeader('WWW-Authenticate', 'Basic realm="stratum-mining-proxy"')
-        '    return "Authorization required"
         
         self._prepare_headers(request)
         
